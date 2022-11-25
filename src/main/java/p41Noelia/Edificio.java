@@ -16,6 +16,15 @@ public class Edificio {
      *
      */
     public static void main(String[] args) {
+        
+        Elevador ascensor1 = new Elevador("Ascensores Guays", 
+                7, 700, LocalDate.MIN, 
+                LocalDate.MIN, 2, "Subiendo");
+        Elevador ascensor2 = new Elevador ("Ascensores no tan Guays", 
+                8, 900, LocalDate.MIN, 
+                LocalDate.MIN, 0, "");
+        System.out.println(ascensor1);
+        System.out.println(ascensor2);
 
     }
 

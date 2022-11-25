@@ -23,7 +23,7 @@ public class Elevador {
     private int planta;
     private String estado;
 
-    public Elevador(String numeroSerie, String fabricante, int maxPersonas, double maxPeso, LocalDate fechaFabricacion, LocalDate fechaRevision, int planta, String estado) {
+    public Elevador(String fabricante, int maxPersonas, double maxPeso, LocalDate fechaFabricacion, LocalDate fechaRevision, int planta, String estado) {
         this.numeroSerie = numeroSerie();
         this.fabricante = fabricante;
         if (maxPersonas > 0 && maxPersonas <= 10) {
