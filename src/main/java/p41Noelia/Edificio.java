@@ -25,12 +25,17 @@ public class Edificio {
                 LocalDate.MIN, 0, "");
         System.out.println(ascensor1);
         System.out.println(ascensor2);
+        
+        System.out.println("La fecha de la próxima revision del ascensor 1 es: " + 
+                fechaProximaRevision(ascensor1.getFechaRevision()));
 
     }
 
-    public static void fechaProximaRevision(Elevador fechaRevision) {
+    public static Elevador fechaProximaRevision(Elevador fechaRevision) {
+        
+        Elevador proximaRevision = fechaRevision.getFechaRevision().getMonth().plus(6);
 
-        fechaRevision.getFechaRevision().getMonth().plus(6);
+        return proximaRevision;
 
     }
 

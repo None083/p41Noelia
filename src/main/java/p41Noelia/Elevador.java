@@ -21,9 +21,9 @@ public class Elevador {
     private LocalDate fechaFabricacion;
     private LocalDate fechaRevision;
     private int planta;
-    private String estado;
+    private Estado estado;
 
-    public Elevador(String fabricante, int maxPersonas, double maxPeso, LocalDate fechaFabricacion, LocalDate fechaRevision, int planta, String estado) {
+    public Elevador(String fabricante, int maxPersonas, double maxPeso, LocalDate fechaFabricacion, LocalDate fechaRevision, int planta, Estado estado) {
         this.numeroSerie = numeroSerie();
         this.fabricante = fabricante;
         if (maxPersonas > 0 && maxPersonas <= 10) {
@@ -77,7 +77,7 @@ public class Elevador {
         return planta;
     }
 
-    public String getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
@@ -89,13 +89,13 @@ public class Elevador {
         this.planta = planta;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
     @Override
     public String toString() {
-        return "Elevador{" + "numeroSerie=" + numeroSerie + ", fabricante=" + fabricante + ", maxPersonas=" + maxPersonas + ", maxPeso=" + maxPeso + ", fechaFabricacion=" + fechaFabricacion + ", fechaRevision=" + fechaRevision + ", planta=" + planta + ", estado=" + estado + '}';
+        return "Elevador{" + "numeroSerie=" + numeroSerie + ", fabricante=" + fabricante + ", maxPersonas=" + maxPersonas + ", maxPeso=" + maxPeso + ", fechaFabricacion=" + fechaFabricacion + ", fechaRevision=" + fechaRevision + ", planta=" + planta + ", estado=" + estado.getEstado() + '}';
     }
 
     private static String numeroSerie() {
@@ -108,6 +108,14 @@ public class Elevador {
     
     private static boolean mover(int maxPersonas, double maxPeso, int planta){
         if(maxPersonas)
+    }
+    
+    public void subiendo(){
+        this.estado = Estado.SUBIENDO;
+    }
+    
+     public void bajando(){
+        this.estado = Estado.BAJANDO;
     }
 
 }
