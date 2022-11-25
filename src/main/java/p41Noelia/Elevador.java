@@ -14,26 +14,39 @@ import org.apache.commons.lang3.RandomStringUtils;
 public class Elevador {
 
     //Atributos
-    String numeroSerie;
-    String fabricante;
-    int maxPersonas;
-    double maxPeso;
-    LocalDate fechaFabricacion;
-    LocalDate fechaRevision;
+    private String numeroSerie;
+    private String fabricante;
+    private int maxPersonas;
+    private double maxPeso;
+    private LocalDate fechaFabricacion;
+    private LocalDate fechaRevision;
+    private int planta;
+    private String estado;
 
-    public Elevador(String numeroSerie, String fabricante, int maxPersonas, double maxPeso, LocalDate fechaFabricacion, LocalDate fechaRevision) {
+    public Elevador(String numeroSerie, String fabricante, int maxPersonas, double maxPeso, LocalDate fechaFabricacion, LocalDate fechaRevision, int planta, String estado) {
         this.numeroSerie = numeroSerie();
-        this.fabricante = fabricante;     
-        if (maxPersonas > 0 && maxPersonas <= 10){
+        this.fabricante = fabricante;
+        if (maxPersonas > 0 && maxPersonas <= 10) {
             this.maxPersonas = maxPersonas;
         }
-        
-        if (maxPeso > 0 && maxPeso <= 800){
+
+        if (maxPeso > 0 && maxPeso <= 800) {
             this.maxPeso = maxPeso;
         }
-        
+
         this.fechaFabricacion = fechaFabricacion;
         this.fechaRevision = fechaRevision;
+
+        if (planta >= 0 && planta <= 8) {
+            this.planta = planta;
+        }
+        
+        if (planta == 0) {
+            this.estado = null;
+        } else {
+            this.estado = estado;
+        }
+
     }
 
     public String getNumeroSerie() {
@@ -52,32 +65,37 @@ public class Elevador {
         return maxPeso;
     }
 
-    public void getFechaFabricacion(LocalDate fechaFabricacion) {
-        this.fechaFabricacion = fechaFabricacion;
+    public LocalDate getFechaFabricacion() {
+        return fechaFabricacion;
     }
 
-    public void getFechaRevision(LocalDate fechaRevision) {
+    public LocalDate getFechaRevision() {
+        return fechaRevision;
+    }
+
+    public int getPlanta() {
+        return planta;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setFechaRevision(LocalDate fechaRevision) {
         this.fechaRevision = fechaRevision;
     }
 
-    public void setFabricante(String fabricante) {
-        this.fabricante = fabricante;
+    public void setPlanta(int planta) {
+        this.planta = planta;
     }
 
-    public void setMaxPersonas(int maxPersonas) {
-        this.maxPersonas = maxPersonas;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public void setMaxPeso(double maxPeso) {
-        this.maxPeso = maxPeso;
-    }
-
-    public void setFechaFabricacion(String fechaFabricacion) {
-        this.fechaFabricacion = fechaFabricacion;
-    }
-
-    public void setFechaRevision(String fechaRevision) {
-        this.fechaRevision = fechaRevision;
+    @Override
+    public String toString() {
+        return "Elevador{" + "numeroSerie=" + numeroSerie + ", fabricante=" + fabricante + ", maxPersonas=" + maxPersonas + ", maxPeso=" + maxPeso + ", fechaFabricacion=" + fechaFabricacion + ", fechaRevision=" + fechaRevision + ", planta=" + planta + ", estado=" + estado + '}';
     }
 
     private static String numeroSerie() {
@@ -87,8 +105,5 @@ public class Elevador {
         }
         return numero;
     }
-    
-    
-    
 
 }
