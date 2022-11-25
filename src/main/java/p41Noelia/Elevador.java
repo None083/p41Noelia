@@ -105,5 +105,9 @@ public class Elevador {
         }
         return numero;
     }
+    
+    private static boolean mover(int maxPersonas, double maxPeso, int planta){
+        if(maxPersonas)
+    }
 
 }
