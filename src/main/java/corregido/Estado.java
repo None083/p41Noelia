@@ -8,8 +8,6 @@ package corregido;
  *
  * @author noelia
  */
-public enum Estadoo {
-    
+public enum Estado {
     SUBIENDO, BAJANDO, PARADO, AVERIADO
-    
 }
