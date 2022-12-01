@@ -13,6 +13,12 @@ import org.apache.commons.lang3.RandomStringUtils;
  */
 public class Elevador {
     
+    // 
+    public static final double PESO_MAX = 800;
+    public static final double PESO_MIN = 0;
+    public static final int PLANTA_BAJA = 0;
+    public static final int PESO_ALTA = 8;
+    
     //Atributos
     private String numeroSerie;
     private String fabricante;
